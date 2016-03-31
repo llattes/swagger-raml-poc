@@ -1,0 +1,24 @@
+{
+  "name": "swagger-raml-poc",
+  "version": "1.0.0",
+  "description": "POC using stoplightio/api-spec-converter",
+  "main": "index.js",
+  "dependencies": {
+    "api-spec-converter": "git+https://github.com/stoplightio/api-spec-converter.git",
+    "commander": "~2.9.0",
+    "chalk": "~1.1.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "convertSR": "./index.js"
+  },
+  "keywords": [
+    "raml",
+    "swagger",
+    "roundtrip"
+  ],
+  "author": "Luciano Lattes",
+  "license": "ISC"
+}
