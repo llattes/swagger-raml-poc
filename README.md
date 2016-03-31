@@ -16,6 +16,7 @@ npm install -g https://github.com/llattes/swagger-raml-poc.git
 $ convertSR -i yourSwaggerSpec.json -f
 ```
 
+```
 Usage: convertSR (-i | --input) (fileName) ((-r | --raml) | (-f | --full))
 
 Options:
@@ -25,8 +26,9 @@ Options:
 -i, --input <fileName>  The Swagger .json file to convert
 -r, --raml              Convert to RAML only
 -f, --full              Do the full roundtrip Swagger > RAML > Swagger
+```
 
-Usage examples:
+### Usage examples:
 
 For output to RAML only:
 ```bash
