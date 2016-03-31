@@ -40,4 +40,4 @@ $ convertSR -i yourSwaggerSpec.json -f
 ```
 **Should generate two files named yourSwaggerSpec-json-f.raml and yourSwaggerSpec-json-f.json**
 
-type convertSR -h for help
+> type convertSR -h for help
