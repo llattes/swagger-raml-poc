@@ -2,6 +2,10 @@
 
 Swagger to RAML conversions using stoplight.io's `api-spec-converter`.
 
+### Pre-requisites
+
+You'll need Node.js and NPM properly installed in your environment. Node 4+ and NPM 2+ is recommended.
+
 ### Installation
 
 > You might have to prefix the following with `sudo`
