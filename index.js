@@ -18,14 +18,14 @@ function replaceAll(str, find, replace) {
 var convertRoundtrip = function convertRoundtrip(fileName) {
   console.log('Roundtrip conversion stage 1: SWAGGER >> RAML (' + fileName + ')');
 
-  var ramlToSwaggerConverter = new converter.Converter(converter.Formats.SWAGGER, converter.Formats.RAML);
-  ramlToSwaggerConverter.loadFile(fileName, function (err) {
+  var swaggerToRamlConverter = new converter.Converter(converter.Formats.SWAGGER, converter.Formats.RAML);
+  swaggerToRamlConverter.loadFile(fileName, function (err) {
     if (err) {
       console.log(err.stack);
       return;
     }
 
-    ramlToSwaggerConverter.convert('yaml')
+    swaggerToRamlConverter.convert('yaml')
       .then(function (convertedData) {
         var sanitized = convertedData.replace(/^(\s+)\'(.+)\'/gm, '$1$2');
         fs.writeFileSync(replaceAll(fileName, '.', '-') + '-f.raml', sanitized, 'utf8');
@@ -33,14 +33,14 @@ var convertRoundtrip = function convertRoundtrip(fileName) {
       .then(function () {
         console.log('Roundtrip conversion stage 2: RAML >> SWAGGER');
 
-        var swaggerToRamlConverter = new converter.Converter(converter.Formats.RAML, converter.Formats.SWAGGER);
-        swaggerToRamlConverter.loadFile(replaceAll(fileName, '.', '-') + '-f.raml', function (err) {
+        var ramlToSwaggerConverter = new converter.Converter(converter.Formats.RAML, converter.Formats.SWAGGER);
+        ramlToSwaggerConverter.loadFile(replaceAll(fileName, '.', '-') + '-f.raml', function (err) {
           if (err) {
             console.log(err.stack);
             return;
           }
 
-          swaggerToRamlConverter.convert('json')
+          ramlToSwaggerConverter.convert('json')
             .then(function (convertedData) {
               fs.writeFileSync(replaceAll(fileName, '.', '-') + '-f.json', JSON.stringify(convertedData, null, 4), 'utf8');
             })
@@ -60,14 +60,14 @@ var convertRoundtrip = function convertRoundtrip(fileName) {
 var convertToRaml = function convertToRaml(fileName) {
   console.log('Converting to RAML (' + fileName + ')');
 
-  var ramlToSwaggerConverter = new converter.Converter(converter.Formats.SWAGGER, converter.Formats.RAML);
-  ramlToSwaggerConverter.loadFile(fileName, function (err) {
+  var swaggerToRamlConverter = new converter.Converter(converter.Formats.SWAGGER, converter.Formats.RAML);
+  swaggerToRamlConverter.loadFile(fileName, function (err) {
     if (err) {
       console.log(err.stack);
       return;
     }
 
-    ramlToSwaggerConverter.convert('yaml')
+    swaggerToRamlConverter.convert('yaml')
       .then(function (convertedData) {
         var sanitized = convertedData.replace(/^(\s+)\'(.+)\'/gm, '$1$2');
         fs.writeFileSync(replaceAll(fileName, '.', '-') + '-r.raml', sanitized, 'utf8');

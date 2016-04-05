@@ -8,7 +8,7 @@
     "url": "https://github.com/llattes/swagger-raml-poc.git"
   },
   "dependencies": {
-    "api-spec-converter": "git+https://github.com/stoplightio/api-spec-converter.git",
+    "api-spec-converter": "git+https://github.com/llattes/api-spec-converter.git",
     "commander": "~2.9.0",
     "chalk": "~1.1.3"
   },
